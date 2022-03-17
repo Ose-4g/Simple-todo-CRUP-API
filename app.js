@@ -2,10 +2,12 @@ const express = require('express')
 const dotenv = require('dotenv')
 dotenv.config()
 const TodoRepository = require('./TodoRepository')
+const cors = require('cors')
 
 const app = express()
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors())
 
 const repository = new TodoRepository()
 
